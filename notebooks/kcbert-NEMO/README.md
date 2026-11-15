@@ -18,7 +18,7 @@ metrics:
 - accuracy
 - f1
 model-index:
-- name: kcbert-profanity
+- name: kcbert-NEMO
   results:
   - task:
       type: text-classification
@@ -36,7 +36,7 @@ model-index:
       name: F1
 ---
 
-# kcbert-profanity
+# kcbert-NEMO
 
 A binary classifier for offensive Korean text.
 Given a sentence, it predicts whether the sentence is clean (0) or offensive (1).
@@ -77,7 +77,7 @@ Hate speech without any swear words is also labeled 1.
 ```python
 from transformers import pipeline
 
-classifier = pipeline("text-classification", model="illimax/kcbert-profanity")
+classifier = pipeline("text-classification", model="illimax/kcbert-NEMO")
 names = {"LABEL_0": "clean", "LABEL_1": "offensive"}
 
 for text in ["오늘 날씨 정말 좋다", "아 시발 진짜 짜증나네"]:
@@ -89,7 +89,7 @@ for text in ["오늘 날씨 정말 좋다", "아 시발 진짜 짜증나네"]:
 import torch
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
-model_id = "illimax/kcbert-profanity"
+model_id = "illimax/kcbert-NEMO"
 tokenizer = AutoTokenizer.from_pretrained(model_id)
 model = AutoModelForSequenceClassification.from_pretrained(model_id).eval()
 

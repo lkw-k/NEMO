@@ -20,7 +20,7 @@ TOKEN = os.getenv('DISCORD_BOT_TOKEN')       # 환경변수에서 봇 토큰 읽
 GROQ_API_KEY = os.getenv('GROQ_API_KEY')   # 환경변수에서 Groq API 키 읽기
 
 #kcbert 모델 fhem (봇 시작할때 1회 실행)
-MODEL_NAME = "illimax/kcbert-profanity"
+MODEL_NAME = "illimax/kcbert-NEMO"
 TRAINED_PATH = os.path.join(os.path.dirname(__file__), '..', 'models', 'trained')
 WEIGHTS_FILE = os.path.join(TRAINED_PATH, 'model.safetensors')
 print("모델 불러오는 중...")

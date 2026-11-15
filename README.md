@@ -8,7 +8,7 @@
 
 메시지가 올라오면 두 단계로 처리합니다.
 
-1. **KcBERT로 비속어 판정** — `illimax/kcbert-profanity` 모델이 메시지가 비속어인지 아닌지를 분류합니다.
+1. **KcBERT로 비속어 판정** — `illimax/kcbert-NEMO` 모델이 메시지가 비속어인지 아닌지를 분류합니다.
 2. **Groq(LLaMA 3.3 70B)으로 마스킹 + 교정** — 비속어로 판정된 메시지를 Groq API에 보내 두 가지 결과를 받습니다.
    - `원문`: 비속어 부분을 같은 글자 수의 `*`로 가린 버전
    - `교정`: 비속어를 자연스러운 표현으로 바꾸고 맞춤법까지 고친 버전
@@ -52,7 +52,7 @@
 | 역할 | 도구 |
 |---|---|
 | Discord 봇 | `discord.py` |
-| 비속어 분류 | KcBERT (`illimax/kcbert-profanity`) + PyTorch |
+| 비속어 분류 | KcBERT (`illimax/kcbert-NEMO`) + PyTorch |
 | 마스킹/교정 | Groq API (llama-3.3-70b-versatile) |
 | 환경변수 관리 | `python-dotenv` |
 

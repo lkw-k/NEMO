@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>kcbert-profanity</title>
+<title>kcbert-NEMO</title>
 <style>
   :root {
     --bg: #fafafa; --fg: #1a1a1a; --muted: #666; --line: #ddd;
@@ -56,8 +56,8 @@
 </head>
 <body>
 <main>
-  <h1>kcbert-profanity</h1>
-  <p class="sub">한국어 문장이 욕설·혐오 표현인지 판정합니다. 모델: <a href="https://huggingface.co/illimax/kcbert-profanity" target="_blank">illimax/kcbert-profanity</a></p>
+  <h1>kcbert-NEMO</h1>
+  <p class="sub">한국어 문장이 욕설·혐오 표현인지 판정합니다. 모델: <a href="https://huggingface.co/illimax/kcbert-NEMO" target="_blank">illimax/kcbert-NEMO</a></p>
 
   <textarea id="text" placeholder="문장을 입력하세요" maxlength="500"></textarea>
   <div class="row">
@@ -86,7 +86,7 @@
 <script type="module">
   import { AutoTokenizer, AutoModelForSequenceClassification } from "https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.7.6";
 
-  const MODEL_ID = "illimax/kcbert-profanity";
+  const MODEL_ID = "illimax/kcbert-NEMO";
   const $ = (id) => document.getElementById(id);
   const text = $("text"), run = $("run"), status = $("status");
 
