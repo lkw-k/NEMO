@@ -42,7 +42,7 @@ A binary classifier for offensive Korean text.
 Given a sentence, it predicts whether the sentence is clean (0) or offensive (1).
 
 I fine-tuned [beomi/kcbert-base](https://huggingface.co/beomi/kcbert-base) on the [Korean UnSmile dataset](https://huggingface.co/datasets/smilegate-ai/kor_unsmile).
-I use it as the detection step in my Discord bot, [profanity-cleaner](https://github.com/lkw-k/profanity-cleaner).
+I use it as the detection step in my Discord bot, [NEMO](https://github.com/lkw-k/NEMO).
 Masking and rewriting in the bot are done by a separate LLM, not by this model.
 
 ## Labels

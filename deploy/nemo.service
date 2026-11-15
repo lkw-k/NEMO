@@ -1,5 +1,5 @@
 [Unit]
-Description=Profanity Cleaner Discord Bot
+Description=NEMO Discord Bot
 After=network-online.target
 Wants=network-online.target
 
@@ -8,8 +8,8 @@ Type=simple
 # 버퍼링되면 print 로그가 journalctl에 즉시 안 뜬다.
 Environment=PYTHONUNBUFFERED=1
 User=__USER__
-WorkingDirectory=/home/__USER__/profanity-cleaner
-ExecStart=/home/__USER__/profanity-cleaner/.venv/bin/python src/bot.py
+WorkingDirectory=/home/__USER__/NEMO
+ExecStart=/home/__USER__/NEMO/.venv/bin/python src/bot.py
 Restart=always
 RestartSec=10
 StandardOutput=journal

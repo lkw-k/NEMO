@@ -1,4 +1,6 @@
-# profanity-cleaner
+# NEMO
+
+> **New + Motto** — 새로운 대화의 원칙
 
 한국어 비속어를 자동으로 감지하고 마스킹/교정해주는 Discord 봇입니다.
 
@@ -95,8 +97,8 @@ Discord 봇은 서버에서 Discord로 나가는 연결만 사용합니다. 열�
 
 ```bash
 ssh 계정@학교서버주소
-git clone https://github.com/사용자명/profanity-cleaner.git
-cd profanity-cleaner
+git clone https://github.com/사용자명/NEMO.git
+cd NEMO
 ```
 
 ### 2. 가상환경 + 의존성 (CPU 전용)
@@ -129,19 +131,19 @@ chmod 600 .env
 ### 5. systemd 등록
 
 ```bash
-sed "s/__USER__/$USER/g" deploy/profanity-cleaner.service | sudo tee /etc/systemd/system/profanity-cleaner.service
+sed "s/__USER__/$USER/g" deploy/nemo.service | sudo tee /etc/systemd/system/nemo.service
 sudo systemctl daemon-reload
-sudo systemctl enable --now profanity-cleaner
+sudo systemctl enable --now nemo
 ```
 
-`WorkingDirectory`가 `/home/$USER/profanity-cleaner` 기준이므로, 다른 경로에 클론했다면 유닛 파일의 경로를 수정해야 합니다.
+`WorkingDirectory`가 `/home/$USER/NEMO` 기준이므로, 다른 경로에 클론했다면 유닛 파일의 경로를 수정해야 합니다.
 
 ### 6. 운영
 
 ```bash
-sudo systemctl status profanity-cleaner    # 상태 확인
-sudo journalctl -u profanity-cleaner -f    # 로그 실시간 확인
-sudo systemctl restart profanity-cleaner   # 재시작
+sudo systemctl status nemo    # 상태 확인
+sudo journalctl -u nemo -f    # 로그 실시간 확인
+sudo systemctl restart nemo   # 재시작
 
-git pull && sudo systemctl restart profanity-cleaner   # 코드 업데이트
+git pull && sudo systemctl restart nemo   # 코드 업데이트
 ```

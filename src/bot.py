@@ -60,7 +60,9 @@ FALSE_POS_EMOJI = "🏳️"  # 욕설 아닌데 오탐된 경우 (봇 교정 답
 _FEEDBACK_KEY = FEEDBACK_EMOJI.replace('️', '')
 _FALSE_POS_KEY = FALSE_POS_EMOJI.replace('️', '')
 
-WEBHOOK_NAME = "profanity-cleaner"
+WEBHOOK_NAME = "NEMO"
+# 이름 변경 전에 만든 웹훅. 새로 만들면 채널 웹훅 상한을 잡아먹으므로 그대로 재사용한다.
+_LEGACY_WEBHOOK_NAMES = {"profanity-cleaner"}
 _webhook_cache: dict[int, discord.Webhook] = {}
 # 웹훅 재게시 메시지 id -> (원본 메시지 id, 원본 내용). 원본은 삭제되므로 오탐 피드백용으로 보관.
 _masked_origin: dict[int, tuple[int, str]] = {}
@@ -128,7 +130,7 @@ async def _get_webhook(channel):
     if channel.id in _webhook_cache:
         return _webhook_cache[channel.id]
     for wh in await channel.webhooks():
-        if wh.name == WEBHOOK_NAME:
+        if wh.name == WEBHOOK_NAME or wh.name in _LEGACY_WEBHOOK_NAMES:
             _webhook_cache[channel.id] = wh
             return wh
     wh = await channel.create_webhook(name=WEBHOOK_NAME)
